@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bavro Travel</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="background-layer"></div>
+    <div class="background-layer next"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <img src="bavro-logo.png" alt="Bavro Logo" />
+      </div>
+      <a href="#" class="book-now">Book Now ➤</a>
+    </nav>
+
+    <div class="hero-content">
+      <h1><span>Discover</span> the World <br> with <strong>Bavro</strong>.</h1>
+      <a href="#" class="btn-primary">Explore Now ➤</a>
+
+      <div class="content-row">
+        <div class="hashtags">
+          <span>adventure</span>
+          <span>Explore</span>
+          <span>Travel</span>
+          <span>Wonderlust</span>
+          <span>Vacation</span>
+          <span>Journey</span>
+          <span>Getaway</span>
+          <span>Escape</span>
+          <span>Discover</span>
+        </div>
+
+        <div class="testimonial-box">
+          <p><strong>Your Trusted Travel</strong> Partner!</p>
+          <div class="clients">
+            <img src="user1.jpg" alt="Client 1" />
+            <img src="user2.jpg" alt="Client 2" />
+            <img src="user3.jpg" alt="Client 3" />
+            <span>200k+ Happy Client</span>
+          </div>
+          <button class="play-button">▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const images = ["q1.jpg", "q2.jpg", "q3.jpg","q3.jpg","q4.avif","q5.avif","q6.avif","q7.avif","q8.avif","q9.avif"];
+    let index = 0;
+    const bgCurrent = document.querySelector('.background-layer');
+    const bgNext = document.querySelector('.background-layer.next');
+
+    // Preload images
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      bgNext.style.backgroundImage = `url('${images[index]}')`;
+      bgNext.classList.add('fade-in');
+
+      setTimeout(() => {
+        bgCurrent.style.backgroundImage = `url('${images[index]}')`;
+        bgNext.classList.remove('fade-in');
+      }, 1000);
+    }, 3000);
+  </script>
+
+</body>
+</html>
